@@ -1,7 +1,8 @@
 # 📦 404 Solutions — Encontramos o que falta.
 
-<img width="400" alt="image" src="https://github.com/user-attachments/assets/d961beb0-059a-4973-a264-08b49a4d3f2c" />
-
+<div align="center">
+  <img width="400" alt="image" src="https://github.com/user-attachments/assets/d961beb0-059a-4973-a264-08b49a4d3f2c" />
+</div>
 
 > Protótipo funcional desenvolvido para a atividade **Canes Solutions**, focado em organização, controle de vendas e geração de insights gerenciais para pequenos comércios.
 
