@@ -1,4 +1,4 @@
-# 📦 404 Solutions - Controle de Estoque Inteligente
+# 📦 404 Solutions — Encontramos o que falta.
 
 > Protótipo funcional desenvolvido para a atividade **Canes Solutions**, focado em organização, controle de vendas e geração de insights gerenciais para pequenos comércios.
 
