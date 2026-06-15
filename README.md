@@ -1,7 +1,7 @@
 # 📦 404 Solutions — Encontramos o que falta.
 
 <div align="center">
-  <img width="400" alt="image" src="https://github.com/user-attachments/assets/d961beb0-059a-4973-a264-08b49a4d3f2c" />
+  <img width="400" alt="Logo 404 Solutions" src="https://github.com/user-attachments/assets/d961beb0-059a-4973-a264-08b49a4d3f2c" />
 </div>
 
 > Protótipo funcional desenvolvido para a atividade **Canes Solutions**, focado em organização, controle de vendas e geração de insights gerenciais para pequenos comércios.
@@ -12,6 +12,7 @@
 ![H2 Database](https://img.shields.io/badge/H2-Database-1A5276?style=flat)
 ![Swing](https://img.shields.io/badge/UI-Java%20Swing-FF9900?style=flat)
 ![Maven](https://img.shields.io/badge/Build-Maven-C71A36?style=flat&logo=apachemaven&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white)
 
 ---
 
@@ -45,6 +46,22 @@ O protótipo substitui planilhas manuais por uma aplicação desktop integrada a
 | **Gerenciamento** | Maven |
 | **IDE** | NetBeans (compatível com IntelliJ/Eclipse) |
 | **Versionamento** | Git & GitHub |
+
+---
+
+## 🔄 Versionamento e Fluxo de Trabalho
+
+O projeto utiliza **Git** para controle de versão, seguindo boas práticas de commit semântico e organização de branches.
+
+### 🌿 Estrutura de Branches
+- `main`: Branch principal, contém a versão estável e pronta para apresentação.
+
+### 💡 Padrão de Commits
+Utilizamos mensagens de commit claras para facilitar o rastreamento de alterações:
+- `feat:` Nova funcionalidade (ex: `feat: adiciona cálculo de lucro diário`)
+- `fix:` Correção de bug (ex: `fix: corrige alerta de estoque negativo`)
+- `docs:` Alteração na documentação (ex: `docs: atualiza README`)
+- `refactor:` Refatoração de código sem mudança de comportamento
 
 ---
 
