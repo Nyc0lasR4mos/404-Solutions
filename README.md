@@ -121,7 +121,7 @@ sa
 ├── pom.xml                             # Dependências Maven
 └── README.md                           # Documentação do projeto
 
-🏗️ Decisões de Arquitetura
+## 🏗️ Decisões de Arquitetura
 Decisão || Motivo Técnico
 ---|---
 Tabela não editável diretamente || Garante que toda alteração passe por validação e regra de negócio no Service, evitando inconsistências.
