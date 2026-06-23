@@ -213,7 +213,7 @@ public class TelaPrincipal extends JFrame {
         }
     }
 
-    // Adiciona ou remove estoque. Pergunta se é venda para calcular lucro.
+    // Adiciona ou remove o estoque. Pergunta se é venda para calcular lucro.
     private void ajustarEstoque(boolean isAdicao) {
         int linha = tabela.getSelectedRow();
         if (linha == -1) { JOptionPane.showMessageDialog(this, "Selecione um produto."); return; }
