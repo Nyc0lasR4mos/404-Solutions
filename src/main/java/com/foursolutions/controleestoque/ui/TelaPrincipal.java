@@ -27,26 +27,26 @@ public class TelaPrincipal extends JFrame {
     // Configura o visual da janela (Layout, Botões, Cores)
     private void configurarTela() {
         setTitle("404 Solutions - Controle de Estoque");
-        setSize(950, 650); 
+        setSize(950, 650);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null); // Centraliza na tela
         setLayout(new BorderLayout(10, 10));
 
         // --- TOPO: Busca e Data ---
         JPanel painelSuperior = new JPanel(new BorderLayout());
-        
+
         // Lado Esquerdo: Barra de Pesquisa
         JPanel painelBusca = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 5));
         JLabel lblBusca = new JLabel("🔍 Buscar por Nome ou ID:");
         tfBusca = new JTextField(20);
         JButton btnBuscar = new JButton("Buscar");
         JButton btnLimpar = new JButton("Limpar");
-        
+
         painelBusca.add(lblBusca);
         painelBusca.add(tfBusca);
         painelBusca.add(btnBuscar);
         painelBusca.add(btnLimpar);
-        
+
         // Lado Direito: Data Atual (Contexto Gerencial)
         JPanel painelData = new JPanel(new FlowLayout(FlowLayout.RIGHT, 10, 5));
         String dataFormatada = LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
@@ -75,7 +75,7 @@ public class TelaPrincipal extends JFrame {
         JButton btnExcluir = new JButton("🗑️ Excluir"); // Na verdade, desativa (Soft Delete)
         JButton btnAddEstoque = new JButton("^ Adicionar");
         JButton btnRemEstoque = new JButton("v Retirar");
-        
+
         lblLucro = new JLabel("💰 Lucro Diário: R$ 0,00");
         lblLucro.setFont(new Font("Arial", Font.BOLD, 14));
         lblLucro.setForeground(new Color(0, 100, 0)); // Verde para lucro
@@ -83,7 +83,7 @@ public class TelaPrincipal extends JFrame {
         // Botão para zerar o caixa (simula fim do dia)
         JButton btnZerarLucro = new JButton("🔄 Zerar Lucro");
         btnZerarLucro.setToolTipText("Simula o fechamento do caixa do dia anterior");
-        btnZerarLucro.setBackground(new Color(255, 200, 200)); 
+        btnZerarLucro.setBackground(new Color(255, 200, 200));
 
         painelBotoes.add(btnCadastrar);
         painelBotoes.add(btnAtualizar);
@@ -94,7 +94,7 @@ public class TelaPrincipal extends JFrame {
         painelBotoes.add(new JSeparator(SwingConstants.VERTICAL));
         painelBotoes.add(lblLucro);
         painelBotoes.add(btnZerarLucro);
-        
+
         add(painelBotoes, BorderLayout.SOUTH);
 
         // Conecta os cliques aos métodos (Listeners)
@@ -103,7 +103,7 @@ public class TelaPrincipal extends JFrame {
         btnExcluir.addActionListener(e -> excluirSelecionado());
         btnAddEstoque.addActionListener(e -> ajustarEstoque(true));
         btnRemEstoque.addActionListener(e -> ajustarEstoque(false));
-        
+
         btnBuscar.addActionListener(e -> filtrarProdutos());
         btnLimpar.addActionListener(e -> { tfBusca.setText(""); carregarDados(); });
         tfBusca.addActionListener(e -> filtrarProdutos()); // Enter também busca
@@ -177,9 +177,9 @@ public class TelaPrincipal extends JFrame {
         JTextField tfCat = new JTextField(p.getCategoria());
         JTextField tfPreco = new JTextField(String.valueOf(p.getPreco()));
         JTextField tfMinimo = new JTextField(String.valueOf(p.getEstoqueMinimo()));
-        
-        // Checkbox crucial para Soft Delete (Ativar/Desativar)
-        JCheckBox chkAtivo = new JCheckBox("Produto Ativo?", p.isAtivo()); 
+
+        // Checkbox crucial para Soft Delete (Ativar/Desativar) 
+        JCheckBox chkAtivo = new JCheckBox("Produto Ativo?", p.isAtivo());
         chkAtivo.setFont(new Font("Arial", Font.BOLD, 12));
 
         Object[] msg = {"Nome:", tfNome, "Categoria:", tfCat, "Preço:", tfPreco, "Estoque Mínimo:", tfMinimo, "", chkAtivo};
@@ -190,12 +190,11 @@ public class TelaPrincipal extends JFrame {
                     JOptionPane.showMessageDialog(this, "❌ Nome já existe!", "Erro", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
-                p.setNome(novoNome); 
+                p.setNome(novoNome);
                 p.setCategoria(tfCat.getText());
                 p.setPreco(Double.parseDouble(tfPreco.getText()));
                 p.setEstoqueMinimo(Integer.parseInt(tfMinimo.getText()));
                 p.setAtivo(chkAtivo.isSelected()); // Define se está ativo ou não
-                
                 service.salvar(p);
                 carregarDados();
                 JOptionPane.showMessageDialog(this, "Atualizado com sucesso!");
@@ -248,12 +247,11 @@ public class TelaPrincipal extends JFrame {
 
     // Confirmação antes de zerar o lucro do dia
     private void confirmarZerarLucro() {
-        int confirmacao = JOptionPane.showConfirmDialog(this, 
-            "Tem certeza que deseja ZERAR o lucro diário?\nIsso simula o fechamento do caixa.", 
-            "Confirmação de Fechamento", 
-            JOptionPane.YES_NO_OPTION, 
+        int confirmacao = JOptionPane.showConfirmDialog(this,
+            "Tem certeza que deseja ZERAR o lucro diário?\nIsso simula o fechamento do caixa.",
+            "Confirmação de Fechamento",
+            JOptionPane.YES_NO_OPTION,
             JOptionPane.WARNING_MESSAGE);
-            
         if (confirmacao == JOptionPane.YES_OPTION) {
             service.zerarLucroDiario();
             carregarDados(); // Atualiza o label de lucro na tela
